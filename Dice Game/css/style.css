@@ -1,0 +1,108 @@
+@font-face {
+  font-family: "Oswald";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("../fonts/oswaldregular.woff2") format("woff2"), 
+       url("../fonts/oswaldregular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Oswald";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url("../fonts/oswaldmedium.woff2") format("woff2"), 
+       url("../fonts/oswaldmedium.woff") format("woff");
+}
+
+body {
+  position: relative;
+  font-family: "Oswald", Arial, sans-serif;
+}
+
+.wrapper {
+  min-width: 400px;
+  min-height: 98vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+
+  padding: 10px 0;
+}
+
+.dice {
+  width: 32px;
+  margin: 5px 10px;
+  padding: 10px;
+
+  font-size: 24px;
+  text-align: center;
+
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: mediumspringgreen;
+
+  -webkit-transition:-webkit-transform 0.5s;
+  transition:transform 0.5s;
+}
+
+.dice-roll {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+
+  font-size: 18px;
+  line-height: 100%;
+
+  color: black;
+  background-color: hotpink;
+  border: 1px solid black;
+  border-radius: 5px;
+
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.3s ease, background 0.3s ease, opacity 0.3s ease;
+}
+
+.dice-roll:hover {
+  background-color: mediumspringgreen;
+}
+
+.dice-roll:active{
+  opacity: 0.7;
+}
+
+.status {
+  position: absolute;
+  top: 5rem;
+  left: 50%;
+
+  min-width: 400px;
+  margin: 0;
+  
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 120%;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.flipping-one {
+  transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+}
+
+
+.flipping-two {
+  transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+}
