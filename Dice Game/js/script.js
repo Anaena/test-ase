@@ -1,43 +1,28 @@
-const diceOne = document.querySelector('[data-dice="side-1"]');
-const diceTwo = document.querySelector('[data-dice="side-2"]');
-const diceThree = document.querySelector('[data-dice="side-3"]');
-const diceFour = document.querySelector('[data-dice="side-4"]');
-const dice = document.querySelectorAll('.dice')
+const dice = document.querySelectorAll('.dice');
 const buttonRoolDice = document.querySelector('.dice-roll');
 const status = document.querySelector('.status');
 
 const rollDice = () => {
-  const sideFirst = Math.floor(Math.random() * 6) + 1;
-  const sideSecond = Math.floor(Math.random() * 6) + 1;
-  const sideThird = Math.floor(Math.random() * 6) + 1;
-  const sideFourth = Math.floor(Math.random() * 6) + 1;
-  const diceTotal = sideFirst + sideSecond + sideThird + sideFourth;
-
-  dice.forEach(el => {
-    el.classList.add('flipping');
-
-    if(el.classList.contains('flipping-one')) {
-      el.classList.remove('flipping-one');
-      el.classList.add('flipping-two');
-    } else if (el.classList.contains('flipping-two')) {
-      el.classList.remove('flipping-two');
-      el.classList.add('flipping-one');
+  dice.forEach(el => {    
+    const diceSide = Math.floor(Math.random() * 6) + 1;
+    
+    el.innerHTML = diceSide;
+    
+    if (el.classList.contains('flipping-one') || el.classList.contains('flipping-two')) {
+      el.classList.toggle('flipping-one');
+      el.classList.toggle('flipping-two');
     } else {
       el.classList.add('flipping-one');
-    };
+    }
   });
   
-  diceOne.innerHTML = sideFirst;
-  diceTwo.innerHTML = sideSecond;
-  diceThree.innerHTML = sideThird;
-  diceFour.innerHTML = sideFourth;
-  
-  status.innerHTML = 'Ваш счет ' + diceTotal + '.';  
-  
-  if (sideFirst === sideSecond === sideThird === sideThird) {
-    status.innerHTML += ' Вам выпал дубль! Киньте кости еще раз!';
+  let sum = 0;
+  for (let i = 0; i < dice.length; i++) {
+    sum += +dice[i].textContent;
   }
-
+  const diceTotal = sum;
+  
+  status.innerHTML = 'Ваш счет ' + diceTotal + '.';    
 };
 
 window.addEventListener('DOMContentLoaded', function () {

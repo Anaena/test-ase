@@ -58,6 +58,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-height: 42px;
   padding: 10px 16px;
 
   font-size: 18px;
